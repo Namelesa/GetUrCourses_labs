@@ -8,8 +8,7 @@ export default defineUserConfig({
 
   lang: "en-US",
   // Замінити на назву свого проєкту
-  title: "Назва проєкту",
-  description: "Лабораторні роботи",
+  title: "GetUrCourse",
 
   theme,
 
