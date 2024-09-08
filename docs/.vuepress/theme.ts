@@ -9,7 +9,7 @@ export default hopeTheme({
 
   editLink: false,
   // Замінити на назву свого репозиторія
-  repo: "Namelesa/GetUrCourses",
+  repo: "Namelesa/GetUrCourses_labs",
 
   docsDir: "docs",
   // navbar
@@ -23,9 +23,7 @@ export default hopeTheme({
 
   displayFooter: true,
 
-  plugins: 
-  {
-  
+  plugins: {
     // All features are enabled for demo, only preserve features you need here
     mdEnhance: {
       align: true,

@@ -1,10 +1,10 @@
 import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
-import MarkdownItPlantuml from 'markdown-it-plantuml';
+import MarkdownItPlantuml from "markdown-it-plantuml";
 
 export default defineUserConfig({
   // Замінити на назву свого репозиторія
-  base: "/db-course-hope-template/",
+  base: "/GetUrCourses_labs/",
 
   lang: "en-US",
   // Замінити на назву свого проєкту
@@ -12,7 +12,7 @@ export default defineUserConfig({
 
   theme,
 
-  extendsMarkdown: md =>{
+  extendsMarkdown: (md) => {
     md.use(MarkdownItPlantuml);
   },
 });
