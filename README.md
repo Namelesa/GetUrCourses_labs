@@ -8,7 +8,7 @@
 *студент 3-го курсу, групи ІО-22*<span padding-right:5em></span> Гришаєв Семен
  [Telegram](https://t.me/drorislav)  
 
-*студентка 3-го курсу, групи ІО-25*<span padding-right:5em></span> Роменський Данило
+*студент 3-го курсу, групи ІО-25*<span padding-right:5em></span> Роменський Данило
  [Telegram](https://t.me/D0wnfal1)  
 
 *студент 3-го курсу, групи ІО-22*<span padding-right:5em></span> Дуплика Віктор
