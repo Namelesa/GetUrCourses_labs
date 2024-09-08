@@ -1,1 +1,9 @@
 // place your custom styles here
+.vp-hero-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.vp-hero-action.primary {
+  text-align: center;
+}
