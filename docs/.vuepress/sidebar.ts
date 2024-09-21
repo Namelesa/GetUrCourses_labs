@@ -12,8 +12,7 @@ export default sidebar({
     {
       text: "Проектування архітектури",
       // icon: "laptop-code",
-      prefix: "use cases/",
-      link: "use cases/",
+      prefix: "architecture/",
       children: "structure",
       collapsible: true,
     },
