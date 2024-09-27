@@ -17,10 +17,9 @@ export default sidebar({
       collapsible: true,
     },
     {
-      text: "Проєктування інформаційного забезпечення",
+      text: "Макет інтерфейсу",
       // icon: "laptop-code",
-      prefix: "design/",
-      link: "design/",
+      prefix: "UI/",
       children: "structure",
       collapsible: true,
     },
