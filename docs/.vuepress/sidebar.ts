@@ -24,10 +24,9 @@ export default sidebar({
       collapsible: true,
     },
     {
-      text: "Реалізація інформаційного та програмного забезпечення",
+      text: "Розробка базової структури коду",
       // icon: "laptop-code",
-      prefix: "software/",
-      link: "software/",
+      prefix: "code/",
       children: "structure",
       collapsible: true,
     },
