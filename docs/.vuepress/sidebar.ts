@@ -31,10 +31,16 @@ export default sidebar({
       collapsible: true,
     },
     {
-      text: "Тестування процездатності системи",
+      text: "Інтеграція компонентів та управління залежностями",
+      // icon: "laptop-code",
+      prefix: "integration/",
+      children: "structure",
+      collapsible: true,
+    },
+    {
+      text: "Тестування та валідація",
       // icon: "laptop-code",
       prefix: "test/",
-      link: "test/",
       children: "structure",
       collapsible: true,
     },
