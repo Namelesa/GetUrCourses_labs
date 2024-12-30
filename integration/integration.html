@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en-US" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.7" />
+    <meta name="theme" content="VuePress Theme Hope 2.0.0-rc.23" />
+    <style>
+      html {
+        background: var(--bg-color, #fff);
+      }
+
+      html[data-theme="dark"] {
+        background: var(--bg-color, #1d1e1f);
+      }
+
+      body {
+        background: var(--bg-color);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem("vuepress-theme-hope-scheme");
+      const systemDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (userMode === "dark" || (userMode !== "light" && systemDarkMode)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+    <meta property="og:url" content="https://vuepress-theme-hope-docs-demo.netlify.app/GetUrCourses_labs/integration/integration.html"><meta property="og:site_name" content="GetUrCourse"><meta property="og:title" content="Інтеграція компонентів та управління залежностями"><meta property="og:description" content="Інтеграція компонентів та управління залежностями Підготовка до інтеграції Підготовка до інтеграції є важливим етапом, що забезпечує успішне об’єднання всіх компонентів проекту ..."><meta property="og:type" content="article"><meta property="og:locale" content="en-US"><meta property="og:updated_time" content="2024-12-30T22:11:42.000Z"><meta property="article:modified_time" content="2024-12-30T22:11:42.000Z"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Інтеграція компонентів та управління залежностями","image":[""],"dateModified":"2024-12-30T22:11:42.000Z","author":[]}</script><title>Інтеграція компонентів та управління залежностями | GetUrCourse</title><meta name="description" content="Інтеграція компонентів та управління залежностями Підготовка до інтеграції Підготовка до інтеграції є важливим етапом, що забезпечує успішне об’єднання всіх компонентів проекту ...">
+    <link rel="preload" href="/GetUrCourses_labs/assets/style-CaAc7pPT.css" as="style"><link rel="stylesheet" href="/GetUrCourses_labs/assets/style-CaAc7pPT.css">
+    <link rel="modulepreload" href="/GetUrCourses_labs/assets/app-Br68MbwD.js"><link rel="modulepreload" href="/GetUrCourses_labs/assets/integration.html-Cj_TeZMq.js"><link rel="modulepreload" href="/GetUrCourses_labs/assets/plugin-vue_export-helper-DlAUqK2U.js">
+    <link rel="prefetch" href="/GetUrCourses_labs/assets/index.html-DL1Kj00h.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/UI.html-Bm5KqZyS.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/arch.html-4Tz50HQH.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/code.html-44Zzlv5R.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/index.html-CAI7lhte.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/state-of-the-art.html-D-ba1-vC.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/test.html-DozrkC3y.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/404.html-C6hzVibf.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/index.html-DxYTFYYP.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/index.html-r4iA0dzQ.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/index.html-DG0rC5EC.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/index.html-okefHmp4.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/index.html-B8yMz1Zr.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/index.html-BoWa4_pL.js" as="script"><link rel="prefetch" href="/GetUrCourses_labs/assets/photoswipe.esm-SzV8tJDW.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><!--[--><!--[--><span tabindex="-1"></span><a href="#main-content" class="vp-skip-link sr-only">Skip to main content</a><!--]--><!--[--><div class="theme-container has-toc"><!--[--><header id="navbar" class="vp-navbar"><div class="vp-navbar-start"><button type="button" class="vp-toggle-sidebar-button" title="Toggle Sidebar"><span class="icon"></span></button><!--[--><!----><!--]--><!--[--><a class="route-link vp-brand" href="/GetUrCourses_labs/"><!----><!----><span class="vp-site-name">GetUrCourse</span></a><!--]--><!--[--><!----><!--]--></div><div class="vp-navbar-center"><!--[--><!----><!--]--><!--[--><nav class="vp-nav-links"><div class="nav-item hide-in-mobile"><a href="https://theme-hope.vuejs.press/" rel="noopener noreferrer" target="_blank" aria-label="Docs for theme" class="nav-link"><span class="font-icon icon fa-fw fa-sm fas fa-book" style=""></span>Docs for theme<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!----></a></div></nav><!--]--><!--[--><!----><!--]--></div><div class="vp-navbar-end"><!--[--><!----><!--]--><!--[--><!----><div class="nav-item vp-repo"><a class="vp-repo-link" href="https://github.com/Namelesa/GetUrCourses_labs" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" class="icon github-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="github icon" style="width:1.25rem;height:1.25rem;vertical-align:middle;"><path d="M511.957 21.333C241.024 21.333 21.333 240.981 21.333 512c0 216.832 140.544 400.725 335.574 465.664 24.49 4.395 32.256-10.07 32.256-23.083 0-11.69.256-44.245 0-85.205-136.448 29.61-164.736-64.64-164.736-64.64-22.315-56.704-54.4-71.765-54.4-71.765-44.587-30.464 3.285-29.824 3.285-29.824 49.195 3.413 75.179 50.517 75.179 50.517 43.776 75.008 114.816 53.333 142.762 40.79 4.523-31.66 17.152-53.377 31.19-65.537-108.971-12.458-223.488-54.485-223.488-242.602 0-53.547 19.114-97.323 50.517-131.67-5.035-12.33-21.93-62.293 4.779-129.834 0 0 41.258-13.184 134.912 50.346a469.803 469.803 0 0 1 122.88-16.554c41.642.213 83.626 5.632 122.88 16.554 93.653-63.488 134.784-50.346 134.784-50.346 26.752 67.541 9.898 117.504 4.864 129.834 31.402 34.347 50.474 78.123 50.474 131.67 0 188.586-114.73 230.016-224.042 242.09 17.578 15.232 33.578 44.672 33.578 90.454v135.85c0 13.142 7.936 27.606 32.854 22.87C862.25 912.597 1002.667 728.747 1002.667 512c0-271.019-219.648-490.667-490.71-490.667z"></path></svg></a></div><div class="nav-item hide-in-mobile"><button type="button" id="appearance-switch"><svg xmlns="http://www.w3.org/2000/svg" class="icon auto-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="auto icon" style="display:block;"><path d="M512 992C246.92 992 32 777.08 32 512S246.92 32 512 32s480 214.92 480 480-214.92 480-480 480zm0-840c-198.78 0-360 161.22-360 360 0 198.84 161.22 360 360 360s360-161.16 360-360c0-198.78-161.22-360-360-360zm0 660V212c165.72 0 300 134.34 300 300 0 165.72-134.28 300-300 300z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon dark-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="dark icon" style="display:none;"><path d="M524.8 938.667h-4.267a439.893 439.893 0 0 1-313.173-134.4 446.293 446.293 0 0 1-11.093-597.334A432.213 432.213 0 0 1 366.933 90.027a42.667 42.667 0 0 1 45.227 9.386 42.667 42.667 0 0 1 10.24 42.667 358.4 358.4 0 0 0 82.773 375.893 361.387 361.387 0 0 0 376.747 82.774 42.667 42.667 0 0 1 54.187 55.04 433.493 433.493 0 0 1-99.84 154.88 438.613 438.613 0 0 1-311.467 128z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon light-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="light icon" style="display:none;"><path d="M952 552h-80a40 40 0 0 1 0-80h80a40 40 0 0 1 0 80zM801.88 280.08a41 41 0 0 1-57.96-57.96l57.96-58a41.04 41.04 0 0 1 58 58l-58 57.96zM512 752a240 240 0 1 1 0-480 240 240 0 0 1 0 480zm0-560a40 40 0 0 1-40-40V72a40 40 0 0 1 80 0v80a40 40 0 0 1-40 40zm-289.88 88.08-58-57.96a41.04 41.04 0 0 1 58-58l57.96 58a41 41 0 0 1-57.96 57.96zM192 512a40 40 0 0 1-40 40H72a40 40 0 0 1 0-80h80a40 40 0 0 1 40 40zm30.12 231.92a41 41 0 0 1 57.96 57.96l-57.96 58a41.04 41.04 0 0 1-58-58l58-57.96zM512 832a40 40 0 0 1 40 40v80a40 40 0 0 1-80 0v-80a40 40 0 0 1 40-40zm289.88-88.08 58 57.96a41.04 41.04 0 0 1-58 58l-57.96-58a41 41 0 0 1 57.96-57.96z"></path></svg></button></div><!----><!--]--><!--[--><!----><!--]--><button type="button" class="vp-toggle-navbar-button" aria-label="Toggle Navbar" aria-expanded="false" aria-controls="nav-screen"><span><span class="vp-top"></span><span class="vp-middle"></span><span class="vp-bottom"></span></span></button></div></header><!----><!--]--><!----><div class="toggle-sidebar-wrapper"><span class="arrow start"></span></div><aside id="sidebar" class="vp-sidebar"><!--[--><!----><!--]--><ul class="vp-sidebar-links"><li><section class="vp-sidebar-group"><button class="vp-sidebar-heading clickable" type="button"><!----><span class="vp-sidebar-title">Специфікації до вимог</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-heading clickable" type="button"><!----><span class="vp-sidebar-title">Проектування архітектури</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-heading clickable" type="button"><!----><span class="vp-sidebar-title">Макет інтерфейсу</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-heading clickable" type="button"><!----><span class="vp-sidebar-title">Розробка базової структури коду</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-heading clickable active" type="button"><!----><span class="vp-sidebar-title">Інтеграція компонентів та управління залежностями</span><span class="vp-arrow down"></span></button><ul class="vp-sidebar-links"><li><!--[--><a class="route-link nav-link active vp-sidebar-link vp-sidebar-page active" href="/GetUrCourses_labs/integration/integration.html" aria-label="Інтеграція компонентів та управління залежностями"><!---->Інтеграція компонентів та управління залежностями<!----></a><ul class="vp-sidebar-sub-headers"><li class="vp-sidebar-sub-header"><a class="route-link nav-link vp-sidebar-link vp-heading" href="/GetUrCourses_labs/integration/integration.html#підготовка-до-інтеграціі" aria-label="Підготовка до інтеграції"><!---->Підготовка до інтеграції<!----></a><ul class="vp-sidebar-sub-headers"></ul></li><li class="vp-sidebar-sub-header"><a class="route-link nav-link vp-sidebar-link vp-heading" href="/GetUrCourses_labs/integration/integration.html#налаштування-управління-залежностями" aria-label="Налаштування управління залежностями"><!---->Налаштування управління залежностями<!----></a><ul class="vp-sidebar-sub-headers"></ul></li><li class="vp-sidebar-sub-header"><a class="route-link nav-link vp-sidebar-link vp-heading" href="/GetUrCourses_labs/integration/integration.html#інтеграція-модулів-та-перевірка-сумісності" aria-label="Інтеграція модулів та перевірка сумісності"><!---->Інтеграція модулів та перевірка сумісності<!----></a><ul class="vp-sidebar-sub-headers"></ul></li><li class="vp-sidebar-sub-header"><a class="route-link nav-link vp-sidebar-link vp-heading" href="/GetUrCourses_labs/integration/integration.html#завантаження-в-репозиторіи-на-github" aria-label="Завантаження в репозиторій на GitHub"><!---->Завантаження в репозиторій на GitHub<!----></a><ul class="vp-sidebar-sub-headers"></ul></li></ul><!--]--></li></ul></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-heading clickable" type="button"><!----><span class="vp-sidebar-title">Тестування та валідація</span><span class="vp-arrow end"></span></button><!----></section></li></ul><!--[--><!----><!--]--></aside><!--[--><main id="main-content" class="vp-page"><!--[--><!--[--><!----><!--]--><!----><nav class="vp-breadcrumb disable"></nav><div class="vp-page-title"><h1><!---->Інтеграція компонентів та управління залежностями</h1><div class="page-info"><!----><!----><span class="page-date-info" aria-label="Writing Date📅" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon calendar-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="calendar icon"><path d="M716.4 110.137c0-18.753-14.72-33.473-33.472-33.473-18.753 0-33.473 14.72-33.473 33.473v33.473h66.993v-33.473zm-334.87 0c0-18.753-14.72-33.473-33.473-33.473s-33.52 14.72-33.52 33.473v33.473h66.993v-33.473zm468.81 33.52H716.4v100.465c0 18.753-14.72 33.473-33.472 33.473a33.145 33.145 0 01-33.473-33.473V143.657H381.53v100.465c0 18.753-14.72 33.473-33.473 33.473a33.145 33.145 0 01-33.473-33.473V143.657H180.6A134.314 134.314 0 0046.66 277.595v535.756A134.314 134.314 0 00180.6 947.289h669.74a134.36 134.36 0 00133.94-133.938V277.595a134.314 134.314 0 00-133.94-133.938zm33.473 267.877H147.126a33.145 33.145 0 01-33.473-33.473c0-18.752 14.72-33.473 33.473-33.473h736.687c18.752 0 33.472 14.72 33.472 33.473a33.145 33.145 0 01-33.472 33.473z"></path></svg><span><!----></span><meta property="datePublished" content="2024-12-30T22:11:42.000Z"></span><!----><span class="page-reading-time-info" aria-label="Reading Time⌛" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon timer-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="timer icon"><path d="M799.387 122.15c4.402-2.978 7.38-7.897 7.38-13.463v-1.165c0-8.933-7.38-16.312-16.312-16.312H256.33c-8.933 0-16.311 7.38-16.311 16.312v1.165c0 5.825 2.977 10.874 7.637 13.592 4.143 194.44 97.22 354.963 220.201 392.763-122.204 37.542-214.893 196.511-220.2 389.397-4.661 5.049-7.638 11.651-7.638 19.03v5.825h566.49v-5.825c0-7.379-2.849-13.981-7.509-18.9-5.049-193.016-97.867-351.985-220.2-389.527 123.24-37.67 216.446-198.453 220.588-392.892zM531.16 450.445v352.632c117.674 1.553 211.787 40.778 211.787 88.676H304.097c0-48.286 95.149-87.382 213.728-88.676V450.445c-93.077-3.107-167.901-81.297-167.901-177.093 0-8.803 6.99-15.793 15.793-15.793 8.803 0 15.794 6.99 15.794 15.793 0 80.261 63.69 145.635 142.01 145.635s142.011-65.374 142.011-145.635c0-8.803 6.99-15.793 15.794-15.793s15.793 6.99 15.793 15.793c0 95.019-73.789 172.82-165.96 177.093z"></path></svg><span>About 6 min</span><meta property="timeRequired" content="PT6M"></span><!----><!----></div><hr></div><div class="toc-place-holder"><aside id="toc"><!--[--><!----><!--]--><div class="toc-header">On This Page<button type="button" class="print-button" title="Print"><svg xmlns="http://www.w3.org/2000/svg" class="icon print-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="print icon"><path d="M819.2 364.8h-44.8V128c0-17.067-14.933-32-32-32H281.6c-17.067 0-32 14.933-32 32v236.8h-44.8C145.067 364.8 96 413.867 96 473.6v192c0 59.733 49.067 108.8 108.8 108.8h44.8V896c0 17.067 14.933 32 32 32h460.8c17.067 0 32-14.933 32-32V774.4h44.8c59.733 0 108.8-49.067 108.8-108.8v-192c0-59.733-49.067-108.8-108.8-108.8zM313.6 160h396.8v204.8H313.6V160zm396.8 704H313.6V620.8h396.8V864zM864 665.6c0 25.6-19.2 44.8-44.8 44.8h-44.8V588.8c0-17.067-14.933-32-32-32H281.6c-17.067 0-32 14.933-32 32v121.6h-44.8c-25.6 0-44.8-19.2-44.8-44.8v-192c0-25.6 19.2-44.8 44.8-44.8h614.4c25.6 0 44.8 19.2 44.8 44.8v192z"></path></svg></button></div><div class="toc-wrapper"><ul class="toc-list"><!--[--><li class="toc-item"><a class="route-link toc-link level2" href="/GetUrCourses_labs/#підготовка-до-інтеграціі">Підготовка до інтеграції</a></li><!----><!--]--><!--[--><li class="toc-item"><a class="route-link toc-link level2" href="/GetUrCourses_labs/#налаштування-управління-залежностями">Налаштування управління залежностями</a></li><!----><!--]--><!--[--><li class="toc-item"><a class="route-link toc-link level2" href="/GetUrCourses_labs/#інтеграція-модулів-та-перевірка-сумісності">Інтеграція модулів та перевірка сумісності</a></li><!----><!--]--><!--[--><li class="toc-item"><a class="route-link toc-link level2" href="/GetUrCourses_labs/#завантаження-в-репозиторіи-на-github">Завантаження в репозиторій на GitHub</a></li><!----><!--]--></ul><div class="toc-marker" style="top:-1.7rem;"></div></div><!--[--><!----><!--]--></aside></div><!--[--><!----><!--]--><div class="theme-hope-content"><h1 id="інтеграція-компонентів-та-управління-залежностями" tabindex="-1"><a class="header-anchor" href="#інтеграція-компонентів-та-управління-залежностями"><span>Інтеграція компонентів та управління залежностями</span></a></h1><h2 id="підготовка-до-інтеграціі" tabindex="-1"><a class="header-anchor" href="#підготовка-до-інтеграціі"><span>Підготовка до інтеграції</span></a></h2><p>Підготовка до інтеграції є важливим етапом, що забезпечує успішне об’єднання всіх компонентів проекту в єдину функціональну систему. На цьому етапі було зроблено наступне:</p><ul><li>Проаналізовано вимоги (функціональні/нефункціональні)</li><li>Перевірено готовність компонентів</li><li>Протестовано модулі</li><li>Підготовлено середовище інтеграції, а саме Docker</li></ul><h2 id="налаштування-управління-залежностями" tabindex="-1"><a class="header-anchor" href="#налаштування-управління-залежностями"><span>Налаштування управління залежностями</span></a></h2><p>Для управління залежностями та забезпечення сумісності компонентів в проекті GetUrCourse було використано наступні інструменти та підходи:</p><ul><li>Контейнеризація з Docker. Усі мікросервіси проекту ізольовані за допомогою Docker. Кожен сервіс має власний Dockerfile, який визначає залежності, середовище виконання та процедури побудови. Це забезпечує стабільність середовища, незалежність від конфігурацій локальної машини та можливість розгортання на різних платформах.</li><li>Управління залежностями в .NET Core. У кожному проекті вказані залежності в файлах .csproj. Для віддалених бібліотек використовується dotnet restore, який завантажує необхідні пакети з NuGet. Синхронізація версій залежностей досягнута завдяки централізованому управлінню спільними бібліотеками через проект GetUrCourse.Contracts.</li><li>Оновлення залежностей та перевірка сумісності Перед інтеграцією всі залежності були оновлені до останніх стабільних версій для забезпечення безпеки та продуктивності. Для перевірки сумісності використовувались автоматичні тести, що гарантують коректну роботу сервісів навіть після оновлення залежностей.</li><li>Мікросервісна архітектура та комунікація. Завдяки використанню брокера повідомлень та REST API, взаємодія між сервісами не залежить від їх реалізації. Це дозволяє уникати жорстких залежностей та легко масштабувати проект.</li><li>Інструменти CI/CD. Для автоматизації оновлення залежностей та перевірки працездатності проекту були налаштовані CI/CD процеси на основі GitHub Actions. Це дозволяє: <ul><li>Виконувати перевірку збірки для кожного сервісу.</li><li>Проводити інтеграційні тести для перевірки коректності взаємодії між модулями.</li><li>Публікувати оновлені образи в Docker Registry.<br> Orchestrator</li></ul></li></ul><div class="language-csharp line-numbers-mode" data-ext="cs" data-title="cs"><pre class="language-csharp"><code>FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>aspnet<span class="token punctuation">:</span><span class="token number">8.0</span> AS <span class="token keyword">base</span>
+USER $APP_UID
+WORKDIR <span class="token operator">/</span>app
+EXPOSE <span class="token number">8080</span>
+EXPOSE <span class="token number">8081</span>
+
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>sdk<span class="token punctuation">:</span><span class="token number">8.0</span> AS build
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+WORKDIR <span class="token operator">/</span>src
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Orchestrator/GetUrCourse.Orchestrator.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Orchestrator/&quot;</span><span class="token punctuation">]</span>
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Contracts/GetUrCourse.Contracts.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Contracts/&quot;</span><span class="token punctuation">]</span>
+RUN dotnet restore <span class="token string">&quot;GetUrCourse.Orchestrator/GetUrCourse.Orchestrator.csproj&quot;</span>
+COPY <span class="token punctuation">.</span> <span class="token punctuation">.</span>
+WORKDIR <span class="token string">&quot;/src/GetUrCourse.Orchestrator&quot;</span>
+RUN dotnet build <span class="token string">&quot;GetUrCourse.Orchestrator.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>build
+
+FROM build AS publish
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+RUN dotnet publish <span class="token string">&quot;GetUrCourse.Orchestrator.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token operator">/</span>p<span class="token punctuation">:</span>UseAppHost<span class="token operator">=</span><span class="token boolean">false</span>
+
+FROM <span class="token keyword">base</span> AS final
+WORKDIR <span class="token operator">/</span>app
+COPY <span class="token operator">--</span>from<span class="token operator">=</span>publish <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token punctuation">.</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;dotnet&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Orchestrator.dll&quot;</span><span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>UserService</p><div class="language-csharp line-numbers-mode" data-ext="cs" data-title="cs"><pre class="language-csharp"><code><span class="token preprocessor property"># See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.</span>
+
+<span class="token preprocessor property"># This stage is used when running from VS in </span><span class="token return-type class-name">fast</span> mode <span class="token punctuation">(</span>Default <span class="token keyword">for</span> <span class="token class-name">Debug</span> configuration<span class="token punctuation">)</span>
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>aspnet<span class="token punctuation">:</span><span class="token number">8.0</span> AS <span class="token keyword">base</span>
+USER $APP_UID
+WORKDIR <span class="token operator">/</span>app
+EXPOSE <span class="token number">8080</span>
+EXPOSE <span class="token number">8081</span>
+
+
+<span class="token preprocessor property"># This stage is used to build the service project</span>
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>sdk<span class="token punctuation">:</span><span class="token number">8.0</span> AS build
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+WORKDIR <span class="token operator">/</span>src
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Services.UserAPI/GetUrCourse.Services.UserAPI.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.UserAPI/&quot;</span><span class="token punctuation">]</span>
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Contracts/GetUrCourse.Contracts.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Contracts/&quot;</span><span class="token punctuation">]</span>
+RUN dotnet restore <span class="token string">&quot;./GetUrCourse.Services.UserAPI/GetUrCourse.Services.UserAPI.csproj&quot;</span>
+COPY <span class="token punctuation">.</span> <span class="token punctuation">.</span>
+WORKDIR <span class="token string">&quot;/src/GetUrCourse.Services.UserAPI&quot;</span>
+RUN dotnet build <span class="token string">&quot;./GetUrCourse.Services.UserAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>build
+
+<span class="token preprocessor property"># This stage is used to publish the service project to be copied to the final stage</span>
+FROM build AS publish
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+RUN dotnet publish <span class="token string">&quot;./GetUrCourse.Services.UserAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token operator">/</span>p<span class="token punctuation">:</span>UseAppHost<span class="token operator">=</span><span class="token boolean">false</span>
+
+<span class="token preprocessor property"># This stage is used in production or when running from VS in </span><span class="token return-type class-name">regular</span> mode <span class="token punctuation">(</span>Default <span class="token keyword">when</span> <span class="token keyword">not</span> <span class="token keyword">using</span> the <span class="token class-name">Debug</span> configuration<span class="token punctuation">)</span>
+FROM <span class="token keyword">base</span> AS final
+WORKDIR <span class="token operator">/</span>app
+COPY <span class="token operator">--</span>from<span class="token operator">=</span>publish <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token punctuation">.</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;dotnet&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.UserAPI.dll&quot;</span><span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>TaskService</p><div class="language-csharp line-numbers-mode" data-ext="cs" data-title="cs"><pre class="language-csharp"><code>FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>aspnet<span class="token punctuation">:</span><span class="token number">8.0</span> AS <span class="token keyword">base</span>
+USER $APP_UID
+WORKDIR <span class="token operator">/</span>app
+EXPOSE <span class="token number">8080</span>
+EXPOSE <span class="token number">8081</span>
+
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>sdk<span class="token punctuation">:</span><span class="token number">8.0</span> AS build
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+WORKDIR <span class="token operator">/</span>src
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Services.TaskAPI/GetUrCourse.Services.TaskAPI.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.TaskAPI/&quot;</span><span class="token punctuation">]</span>
+RUN dotnet restore <span class="token string">&quot;GetUrCourse.Services.TaskAPI/GetUrCourse.Services.TaskAPI.csproj&quot;</span>
+COPY <span class="token punctuation">.</span> <span class="token punctuation">.</span>
+WORKDIR <span class="token string">&quot;/src/GetUrCourse.Services.TaskAPI&quot;</span>
+RUN dotnet build <span class="token string">&quot;GetUrCourse.Services.TaskAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>build
+
+FROM build AS publish
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+RUN dotnet publish <span class="token string">&quot;GetUrCourse.Services.TaskAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token operator">/</span>p<span class="token punctuation">:</span>UseAppHost<span class="token operator">=</span><span class="token boolean">false</span>
+
+FROM <span class="token keyword">base</span> AS final
+WORKDIR <span class="token operator">/</span>app
+COPY <span class="token operator">--</span>from<span class="token operator">=</span>publish <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token punctuation">.</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;dotnet&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.TaskAPI.dll&quot;</span><span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>PaymentService</p><div class="language-csharp line-numbers-mode" data-ext="cs" data-title="cs"><pre class="language-csharp"><code><span class="token preprocessor property"># See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.</span>
+
+<span class="token preprocessor property"># This stage is used when running from VS in </span><span class="token return-type class-name">fast</span> mode <span class="token punctuation">(</span>Default <span class="token keyword">for</span> <span class="token class-name">Debug</span> configuration<span class="token punctuation">)</span>
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>aspnet<span class="token punctuation">:</span><span class="token number">8.0</span> AS <span class="token keyword">base</span>
+USER $APP_UID
+WORKDIR <span class="token operator">/</span>app
+EXPOSE <span class="token number">8080</span>
+EXPOSE <span class="token number">8081</span>
+
+
+<span class="token preprocessor property"># This stage is used to build the service project</span>
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>sdk<span class="token punctuation">:</span><span class="token number">8.0</span> AS build
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+WORKDIR <span class="token operator">/</span>src
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Services.PaymentAPI/GetUrCourse.Services.PaymentAPI.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.PaymentAPI/&quot;</span><span class="token punctuation">]</span>
+RUN dotnet restore <span class="token string">&quot;./GetUrCourse.Services.PaymentAPI/GetUrCourse.Services.PaymentAPI.csproj&quot;</span>
+COPY <span class="token punctuation">.</span> <span class="token punctuation">.</span>
+WORKDIR <span class="token string">&quot;/src/GetUrCourse.Services.PaymentAPI&quot;</span>
+RUN dotnet build <span class="token string">&quot;./GetUrCourse.Services.PaymentAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>build
+
+<span class="token preprocessor property"># This stage is used to publish the service project to be copied to the final stage</span>
+FROM build AS publish
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+RUN dotnet publish <span class="token string">&quot;./GetUrCourse.Services.PaymentAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token operator">/</span>p<span class="token punctuation">:</span>UseAppHost<span class="token operator">=</span><span class="token boolean">false</span>
+
+<span class="token preprocessor property"># This stage is used in production or when running from VS in </span><span class="token return-type class-name">regular</span> mode <span class="token punctuation">(</span>Default <span class="token keyword">when</span> <span class="token keyword">not</span> <span class="token keyword">using</span> the <span class="token class-name">Debug</span> configuration<span class="token punctuation">)</span>
+FROM <span class="token keyword">base</span> AS final
+WORKDIR <span class="token operator">/</span>app
+COPY <span class="token operator">--</span>from<span class="token operator">=</span>publish <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token punctuation">.</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;dotnet&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.PaymentAPI.dll&quot;</span><span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>NotificationService</p><div class="language-csharp line-numbers-mode" data-ext="cs" data-title="cs"><pre class="language-csharp"><code><span class="token preprocessor property"># See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.</span>
+
+<span class="token preprocessor property"># This stage is used when running from VS in </span><span class="token return-type class-name">fast</span> mode <span class="token punctuation">(</span>Default <span class="token keyword">for</span> <span class="token class-name">Debug</span> configuration<span class="token punctuation">)</span>
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>aspnet<span class="token punctuation">:</span><span class="token number">8.0</span> AS <span class="token keyword">base</span>
+USER $APP_UID
+WORKDIR <span class="token operator">/</span>app
+EXPOSE <span class="token number">8080</span>
+EXPOSE <span class="token number">8081</span>
+
+
+<span class="token preprocessor property"># This stage is used to build the service project</span>
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>sdk<span class="token punctuation">:</span><span class="token number">8.0</span> AS build
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+WORKDIR <span class="token operator">/</span>src
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Services.NotificationAPI/GetUrCourse.Services.NotificationAPI.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.NotificationAPI/&quot;</span><span class="token punctuation">]</span>
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Contracts/GetUrCourse.Contracts.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Contracts/&quot;</span><span class="token punctuation">]</span>
+RUN dotnet restore <span class="token string">&quot;./GetUrCourse.Services.NotificationAPI/GetUrCourse.Services.NotificationAPI.csproj&quot;</span>
+COPY <span class="token punctuation">.</span> <span class="token punctuation">.</span>
+WORKDIR <span class="token string">&quot;/src/GetUrCourse.Services.NotificationAPI&quot;</span>
+RUN dotnet build <span class="token string">&quot;./GetUrCourse.Services.NotificationAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>build
+
+<span class="token preprocessor property"># This stage is used to publish the service project to be copied to the final stage</span>
+FROM build AS publish
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+RUN dotnet publish <span class="token string">&quot;./GetUrCourse.Services.NotificationAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token operator">/</span>p<span class="token punctuation">:</span>UseAppHost<span class="token operator">=</span><span class="token boolean">false</span>
+
+<span class="token preprocessor property"># This stage is used in production or when running from VS in </span><span class="token return-type class-name">regular</span> mode <span class="token punctuation">(</span>Default <span class="token keyword">when</span> <span class="token keyword">not</span> <span class="token keyword">using</span> the <span class="token class-name">Debug</span> configuration<span class="token punctuation">)</span>
+FROM <span class="token keyword">base</span> AS final
+WORKDIR <span class="token operator">/</span>app
+COPY <span class="token operator">--</span>from<span class="token operator">=</span>publish <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token punctuation">.</span>
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Services.NotificationAPI/Template&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;./Template&quot;</span><span class="token punctuation">]</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;dotnet&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.NotificationAPI.dll&quot;</span><span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>CourseService</p><div class="language-csharp line-numbers-mode" data-ext="cs" data-title="cs"><pre class="language-csharp"><code>FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>aspnet<span class="token punctuation">:</span><span class="token number">8.0</span> AS <span class="token keyword">base</span>
+USER $APP_UID
+WORKDIR <span class="token operator">/</span>app
+EXPOSE <span class="token number">8080</span>
+EXPOSE <span class="token number">8081</span>
+
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>sdk<span class="token punctuation">:</span><span class="token number">8.0</span> AS build
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+WORKDIR <span class="token operator">/</span>src
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Services.CourseAPI/GetUrCourse.Services.CourseAPI.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.CourseAPI/&quot;</span><span class="token punctuation">]</span>
+RUN dotnet restore <span class="token string">&quot;GetUrCourse.Services.CourseAPI/GetUrCourse.Services.CourseAPI.csproj&quot;</span>
+COPY <span class="token punctuation">.</span> <span class="token punctuation">.</span>
+WORKDIR <span class="token string">&quot;/src/GetUrCourse.Services.CourseAPI&quot;</span>
+RUN dotnet build <span class="token string">&quot;GetUrCourse.Services.CourseAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>build
+
+FROM build AS publish
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+RUN dotnet publish <span class="token string">&quot;GetUrCourse.Services.CourseAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token operator">/</span>p<span class="token punctuation">:</span>UseAppHost<span class="token operator">=</span><span class="token boolean">false</span>
+
+FROM <span class="token keyword">base</span> AS final
+WORKDIR <span class="token operator">/</span>app
+COPY <span class="token operator">--</span>from<span class="token operator">=</span>publish <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token punctuation">.</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;dotnet&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.CourseAPI.dll&quot;</span><span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>ChatService</p><div class="language-csharp line-numbers-mode" data-ext="cs" data-title="cs"><pre class="language-csharp"><code>FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>aspnet<span class="token punctuation">:</span><span class="token number">8.0</span> AS <span class="token keyword">base</span>
+USER $APP_UID
+WORKDIR <span class="token operator">/</span>app
+EXPOSE <span class="token number">8080</span>
+EXPOSE <span class="token number">8081</span>
+
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>sdk<span class="token punctuation">:</span><span class="token number">8.0</span> AS build
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+WORKDIR <span class="token operator">/</span>src
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Services.ChatAPI/GetUrCourse.Services.ChatAPI.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.ChatAPI/&quot;</span><span class="token punctuation">]</span>
+RUN dotnet restore <span class="token string">&quot;GetUrCourse.Services.ChatAPI/GetUrCourse.Services.ChatAPI.csproj&quot;</span>
+COPY <span class="token punctuation">.</span> <span class="token punctuation">.</span>
+WORKDIR <span class="token string">&quot;/src/GetUrCourse.Services.ChatAPI&quot;</span>
+RUN dotnet build <span class="token string">&quot;GetUrCourse.Services.ChatAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>build
+
+FROM build AS publish
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+RUN dotnet publish <span class="token string">&quot;GetUrCourse.Services.ChatAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token operator">/</span>p<span class="token punctuation">:</span>UseAppHost<span class="token operator">=</span><span class="token boolean">false</span>
+
+FROM <span class="token keyword">base</span> AS final
+WORKDIR <span class="token operator">/</span>app
+COPY <span class="token operator">--</span>from<span class="token operator">=</span>publish <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token punctuation">.</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;dotnet&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.ChatAPI.dll&quot;</span><span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>AuthService</p><div class="language-csharp line-numbers-mode" data-ext="cs" data-title="cs"><pre class="language-csharp"><code><span class="token preprocessor property"># See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.</span>
+
+<span class="token preprocessor property"># This stage is used when running from VS in </span><span class="token return-type class-name">fast</span> mode <span class="token punctuation">(</span>Default <span class="token keyword">for</span> <span class="token class-name">Debug</span> configuration<span class="token punctuation">)</span>
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>aspnet<span class="token punctuation">:</span><span class="token number">8.0</span> AS <span class="token keyword">base</span>
+USER $APP_UID
+WORKDIR <span class="token operator">/</span>app
+EXPOSE <span class="token number">8080</span>
+EXPOSE <span class="token number">8081</span>
+
+
+<span class="token preprocessor property"># This stage is used to build the service project</span>
+FROM mcr<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>dotnet<span class="token operator">/</span>sdk<span class="token punctuation">:</span><span class="token number">8.0</span> AS build
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+WORKDIR <span class="token operator">/</span>src
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Services.AuthAPI/GetUrCourse.Services.AuthAPI.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.AuthAPI/&quot;</span><span class="token punctuation">]</span>
+COPY <span class="token punctuation">[</span><span class="token string">&quot;GetUrCourse.Contracts/GetUrCourse.Contracts.csproj&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Contracts/&quot;</span><span class="token punctuation">]</span>
+RUN dotnet restore <span class="token string">&quot;./GetUrCourse.Services.AuthAPI/GetUrCourse.Services.AuthAPI.csproj&quot;</span>
+COPY <span class="token punctuation">.</span> <span class="token punctuation">.</span>
+WORKDIR <span class="token string">&quot;/src/GetUrCourse.Services.AuthAPI&quot;</span>
+RUN dotnet build <span class="token string">&quot;./GetUrCourse.Services.AuthAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>build
+
+<span class="token preprocessor property"># This stage is used to publish the service project to be copied to the final stage</span>
+FROM build AS publish
+<span class="token class-name">ARG</span> BUILD_CONFIGURATION<span class="token operator">=</span>Release
+RUN dotnet publish <span class="token string">&quot;./GetUrCourse.Services.AuthAPI.csproj&quot;</span> <span class="token operator">-</span>c $BUILD_CONFIGURATION <span class="token operator">-</span>o <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token operator">/</span>p<span class="token punctuation">:</span>UseAppHost<span class="token operator">=</span><span class="token boolean">false</span>
+
+<span class="token preprocessor property"># This stage is used in production or when running from VS in </span><span class="token return-type class-name">regular</span> mode <span class="token punctuation">(</span>Default <span class="token keyword">when</span> <span class="token keyword">not</span> <span class="token keyword">using</span> the <span class="token class-name">Debug</span> configuration<span class="token punctuation">)</span>
+FROM <span class="token keyword">base</span> AS final
+WORKDIR <span class="token operator">/</span>app
+COPY <span class="token operator">--</span>from<span class="token operator">=</span>publish <span class="token operator">/</span>app<span class="token operator">/</span>publish <span class="token punctuation">.</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;dotnet&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GetUrCourse.Services.AuthAPI.dll&quot;</span><span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>docker-compose.yml</p><div class="language-csharp line-numbers-mode" data-ext="cs" data-title="cs"><pre class="language-csharp"><code>services<span class="token punctuation">:</span>
+  <span class="token preprocessor property"># Services Payment Apidocker</span>
+  geturcourse<span class="token operator">-</span>services<span class="token operator">-</span>payment<span class="token operator">-</span>api<span class="token punctuation">:</span>
+    build<span class="token punctuation">:</span> GetUrCourse<span class="token punctuation">.</span>Services<span class="token punctuation">.</span>PaymentAPI<span class="token operator">/</span>
+    container_name<span class="token punctuation">:</span> &#39;geturcourse<span class="token operator">-</span>services<span class="token operator">-</span>payment<span class="token operator">-</span>api&#39;
+    restart<span class="token punctuation">:</span> <span class="token class-name">always</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5583:8080&quot;</span>  
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;ConnectionStrings:DefaultConnection=Host=geturcourse-auth-db;Database=geturcourse_auth_db;Username=postgres;Password=docker&quot;</span>
+    depends_on<span class="token punctuation">:</span>
+      <span class="token operator">-</span> geturcourse<span class="token operator">-</span>payment<span class="token operator">-</span>db
+
+  <span class="token preprocessor property"># Payment Db</span>
+  geturcourse<span class="token operator">-</span>payment<span class="token operator">-</span>db<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> <span class="token string">&quot;postgres:latest&quot;</span>
+    container_name<span class="token punctuation">:</span> &#39;geturcourse<span class="token operator">-</span>payment<span class="token operator">-</span>db&#39;
+    restart<span class="token punctuation">:</span> <span class="token class-name">always</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5433:5432&quot;</span>  
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> POSTGRES_PASSWORD<span class="token operator">=</span>docker
+      <span class="token operator">-</span> POSTGRES_USER<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_DB<span class="token operator">=</span><span class="token class-name">geturcourse_payment_db</span>
+    volumes<span class="token punctuation">:</span>
+      <span class="token operator">-</span> geturcourse<span class="token operator">-</span>payment<span class="token operator">-</span>db<span class="token operator">-</span>data<span class="token punctuation">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>postgresql<span class="token operator">/</span><span class="token class-name">data</span> 
+    healthcheck<span class="token punctuation">:</span>
+      test<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;CMD&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;pg_isready&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;-h&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;localhost&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;-U&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;postgres&quot;</span><span class="token punctuation">]</span>
+      interval<span class="token punctuation">:</span> 30s
+      retries<span class="token punctuation">:</span> <span class="token number">5</span>
+      timeout<span class="token punctuation">:</span> 10s
+
+  <span class="token preprocessor property"># Redis service</span>
+  promocode<span class="token operator">-</span>factory<span class="token operator">-</span>redis<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> <span class="token string">&quot;redis:alpine&quot;</span>
+    container_name<span class="token punctuation">:</span> &#39;geturcourse<span class="token operator">-</span>redis&#39;
+    restart<span class="token punctuation">:</span> <span class="token class-name">always</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;6379:6379&quot;</span>  
+    healthcheck<span class="token punctuation">:</span>
+      test<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;CMD&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;redis-cli&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;ping&quot;</span><span class="token punctuation">]</span>
+      interval<span class="token punctuation">:</span> 30s
+      retries<span class="token punctuation">:</span> <span class="token number">5</span>
+      timeout<span class="token punctuation">:</span> 10s
+    
+  authService<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> geturcourse<span class="token operator">/</span><span class="token class-name">auth</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>Auth</span>
+    build<span class="token punctuation">:</span>
+      context<span class="token punctuation">:</span> <span class="token punctuation">.</span>
+      dockerfile<span class="token punctuation">:</span> src<span class="token operator">/</span>GetUrCourse<span class="token punctuation">.</span>Auth<span class="token operator">/</span><span class="token class-name">Dockerfile</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5000:80&quot;</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> ASPNETCORE_ENVIRONMENT<span class="token operator">=</span><span class="token class-name">Release</span>
+    depends_on<span class="token punctuation">:</span>
+      <span class="token operator">-</span> rabbitmq
+      <span class="token operator">-</span> rabbitPostgres
+      <span class="token operator">-</span> <span class="token class-name">authPostgres</span>
+  
+  authPostgres<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> postgres<span class="token punctuation">:</span><span class="token class-name">latest</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>AuthPostgres</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> POSTGRES_USER<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_PASSWORD<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_DB<span class="token operator">=</span><span class="token class-name">auth</span>
+    ports<span class="token punctuation">:</span> 
+      <span class="token operator">-</span> <span class="token string">&quot;5229:5432&quot;</span>
+    volumes<span class="token punctuation">:</span>
+      <span class="token operator">-</span> GetUrCourse<span class="token punctuation">.</span>AuthPostgres<span class="token punctuation">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>postgresql<span class="token operator">/</span><span class="token class-name">data</span>
+  
+  
+  notificationService<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> geturcourse<span class="token operator">/</span><span class="token class-name">notification</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>Notification</span>
+    build<span class="token punctuation">:</span>
+      context<span class="token punctuation">:</span> <span class="token punctuation">.</span>
+      dockerfile<span class="token punctuation">:</span> src<span class="token operator">/</span>GetUrCourse<span class="token punctuation">.</span>Notification<span class="token operator">/</span><span class="token class-name">Dockerfile</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5001:80&quot;</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> ASPNETCORE_ENVIRONMENT<span class="token operator">=</span><span class="token class-name">Development</span>
+    depends_on<span class="token punctuation">:</span>
+      <span class="token operator">-</span> rabbitmq
+      <span class="token operator">-</span> <span class="token class-name">rabbitPostgres</span>
+  
+  notificationPostgres<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> postgres<span class="token punctuation">:</span><span class="token class-name">latest</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>NotificationPostgres</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> POSTGRES_USER<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_PASSWORD<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_DB<span class="token operator">=</span><span class="token class-name">notification</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5231:5432&quot;</span>
+    volumes<span class="token punctuation">:</span>
+      <span class="token operator">-</span> GetUrCourse<span class="token punctuation">.</span>NotificationPostgres<span class="token punctuation">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>postgresql<span class="token operator">/</span><span class="token class-name">data</span>
+  
+  userService<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> geturcourse<span class="token operator">/</span><span class="token class-name">user</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>User</span>
+    build<span class="token punctuation">:</span>
+      context<span class="token punctuation">:</span> <span class="token punctuation">.</span>
+      dockerfile<span class="token punctuation">:</span> src<span class="token operator">/</span>GetUrCourse<span class="token punctuation">.</span>User<span class="token operator">/</span><span class="token class-name">Dockerfile</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5002:80&quot;</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> ASPNETCORE_ENVIRONMENT<span class="token operator">=</span><span class="token class-name">Development</span>
+    depends_on<span class="token punctuation">:</span>
+      <span class="token operator">-</span> rabbitmq
+      <span class="token operator">-</span> rabbitPostgres
+      <span class="token operator">-</span> <span class="token class-name">userPostgres</span>
+  
+  userPostgres<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> postgres<span class="token punctuation">:</span><span class="token class-name">latest</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>UserPostgres</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> POSTGRES_USER<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_PASSWORD<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_DB<span class="token operator">=</span><span class="token class-name">user</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5230:5432&quot;</span>
+    volumes<span class="token punctuation">:</span>
+      <span class="token operator">-</span> GetUrCourse<span class="token punctuation">.</span>UserPostgres<span class="token punctuation">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>postgresql<span class="token operator">/</span><span class="token class-name">data</span>
+  
+  taskService<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> geturcourse<span class="token operator">/</span><span class="token class-name">user</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>User</span>
+    build<span class="token punctuation">:</span>
+      context<span class="token punctuation">:</span> <span class="token punctuation">.</span>
+      dockerfile<span class="token punctuation">:</span> src<span class="token operator">/</span>GetUrCourse<span class="token punctuation">.</span>User<span class="token operator">/</span><span class="token class-name">Dockerfile</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5002:80&quot;</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> ASPNETCORE_ENVIRONMENT<span class="token operator">=</span><span class="token class-name">Development</span>
+    depends_on<span class="token punctuation">:</span>
+      <span class="token operator">-</span> rabbitmq
+      <span class="token operator">-</span> rabbitPostgres
+      <span class="token operator">-</span> <span class="token class-name">userPostgres</span>
+  
+  taskPostgres<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> postgres<span class="token punctuation">:</span><span class="token class-name">latest</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>UserPostgres</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> POSTGRES_USER<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_PASSWORD<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_DB<span class="token operator">=</span><span class="token class-name">user</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5230:5432&quot;</span>
+    volumes<span class="token punctuation">:</span>
+      <span class="token operator">-</span> GetUrCourse<span class="token punctuation">.</span>UserPostgres<span class="token punctuation">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>postgresql<span class="token operator">/</span><span class="token class-name">data</span>
+  
+  courseService<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> geturcourse<span class="token operator">/</span><span class="token class-name">course</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>Course</span>
+    build<span class="token punctuation">:</span>
+      context<span class="token punctuation">:</span> <span class="token punctuation">.</span>
+      dockerfile<span class="token punctuation">:</span> src<span class="token operator">/</span>GetUrCourse<span class="token punctuation">.</span>Course<span class="token operator">/</span><span class="token class-name">Dockerfile</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5004:80&quot;</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> ASPNETCORE_ENVIRONMENT<span class="token operator">=</span><span class="token class-name">Development</span>
+    depends_on<span class="token punctuation">:</span>
+      <span class="token operator">-</span> rabbitmq
+      <span class="token operator">-</span> rabbitPostgres
+      <span class="token operator">-</span> <span class="token class-name">coursePostgres</span>
+  
+  coursePostgres<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> postgres<span class="token punctuation">:</span><span class="token class-name">latest</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>CoursePostgres</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> POSTGRES_USER<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_PASSWORD<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_DB<span class="token operator">=</span><span class="token class-name">course</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5232:5432&quot;</span>
+    volumes<span class="token punctuation">:</span>
+      <span class="token operator">-</span> GetUrCourse<span class="token punctuation">.</span>CoursePostgres<span class="token punctuation">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>postgresql<span class="token operator">/</span><span class="token class-name">data</span>
+  
+  chatService<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> geturcourse<span class="token operator">/</span><span class="token class-name">chat</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>Chat</span>
+    build<span class="token punctuation">:</span>
+      context<span class="token punctuation">:</span> <span class="token punctuation">.</span>
+      dockerfile<span class="token punctuation">:</span> src<span class="token operator">/</span>GetUrCourse<span class="token punctuation">.</span>Chat<span class="token operator">/</span><span class="token class-name">Dockerfile</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5005:80&quot;</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> ASPNETCORE_ENVIRONMENT<span class="token operator">=</span><span class="token class-name">Development</span>
+    depends_on<span class="token punctuation">:</span>
+      <span class="token operator">-</span> rabbitmq
+      <span class="token operator">-</span> rabbitPostgres
+      <span class="token operator">-</span> <span class="token class-name">chatPostgres</span>
+  
+  chatPostgres<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> postgres<span class="token punctuation">:</span><span class="token class-name">latest</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>ChatPostgres</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> POSTGRES_USER<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_PASSWORD<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_DB<span class="token operator">=</span><span class="token class-name">chat</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5233:5432&quot;</span>
+    volumes<span class="token punctuation">:</span>
+      <span class="token operator">-</span> GetUrCourse<span class="token punctuation">.</span>ChatPostgres<span class="token punctuation">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>postgresql<span class="token operator">/</span><span class="token class-name">data</span>
+  
+  orchestrator<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> geturcourse<span class="token operator">/</span><span class="token class-name">orchestrator</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>Orchestrator</span>
+    build<span class="token punctuation">:</span>
+      context<span class="token punctuation">:</span> <span class="token punctuation">.</span>
+      dockerfile<span class="token punctuation">:</span> src<span class="token operator">/</span>GetUrCourse<span class="token punctuation">.</span>Orchestrator<span class="token operator">/</span><span class="token class-name">Dockerfile</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5003:80&quot;</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> ASPNETCORE_ENVIRONMENT<span class="token operator">=</span><span class="token class-name">Development</span>
+    depends_on<span class="token punctuation">:</span>
+      <span class="token operator">-</span> rabbitmq
+      <span class="token operator">-</span> <span class="token class-name">rabbitPostgres</span>
+
+  rabbitmq<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> masstransit<span class="token operator">/</span><span class="token class-name">rabbitmq</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>RabbitMQ</span>
+    volumes<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span>container<span class="token operator">/</span>queue<span class="token operator">/</span>data<span class="token operator">/</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>rabbitmq  
+      <span class="token operator">-</span> <span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span>container<span class="token operator">/</span>queue<span class="token operator">/</span>log<span class="token operator">/</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>log<span class="token operator">/</span><span class="token class-name">rabbitmq</span>  
+    environment<span class="token punctuation">:</span>
+      RABBITMQ_DEFAULT_USER<span class="token punctuation">:</span> <span class="token class-name">guest</span>
+      RABBITMQ_DEFAULT_PASS<span class="token punctuation">:</span> <span class="token class-name">guest</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5672:5672&quot;</span>  
+      <span class="token operator">-</span> <span class="token string">&quot;15672:15672&quot;</span> 
+
+  rabbitPostgres<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> postgres<span class="token punctuation">:</span><span class="token class-name">latest</span>
+    container_name<span class="token punctuation">:</span> <span class="token class-name">GetUrCourse<span class="token punctuation">.</span>RabbitPostgres</span>
+    environment<span class="token punctuation">:</span>
+      <span class="token operator">-</span> POSTGRES_USER<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_PASSWORD<span class="token operator">=</span>postgres
+      <span class="token operator">-</span> POSTGRES_DB<span class="token operator">=</span><span class="token class-name">rabbit</span>
+    ports<span class="token punctuation">:</span>
+      <span class="token operator">-</span> <span class="token string">&quot;5228:5432&quot;</span>  
+    volumes<span class="token punctuation">:</span>
+      <span class="token operator">-</span> GetUrCourse<span class="token punctuation">.</span>RabbitPostgres<span class="token punctuation">:</span><span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>lib<span class="token operator">/</span>postgresql<span class="token operator">/</span><span class="token class-name">data</span>
+
+volumes<span class="token punctuation">:</span>
+  geturcourse<span class="token operator">-</span>payment<span class="token operator">-</span>db<span class="token operator">-</span>data<span class="token punctuation">:</span>
+  GetUrCourse<span class="token punctuation">.</span>AuthPostgres<span class="token punctuation">:</span>
+  GetUrCourse<span class="token punctuation">.</span>NotificationPostgres<span class="token punctuation">:</span>
+  GetUrCourse<span class="token punctuation">.</span>UserPostgres<span class="token punctuation">:</span>
+  GetUrCourse<span class="token punctuation">.</span>CoursePostgres<span class="token punctuation">:</span>
+  GetUrCourse<span class="token punctuation">.</span>ChatPostgres<span class="token punctuation">:</span>
+  GetUrCourse<span class="token punctuation">.</span>RabbitPostgres<span class="token punctuation">:</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="інтеграція-модулів-та-перевірка-сумісності" tabindex="-1"><a class="header-anchor" href="#інтеграція-модулів-та-перевірка-сумісності"><span>Інтеграція модулів та перевірка сумісності</span></a></h2><p>Оскільки було використано мікросервісну архітектруру, то перевіряти модулі на сумісність немамє потреби, бо в проєкті є брокер повідомлень для спілкування між сервісами. А детеальну роботу проєкту можна подивитися за <a href="https://drive.google.com/file/d/109QIg0GT5WcRkHUx_oivV6VDH0585HmP/view?usp=sharing" target="_blank" rel="noopener noreferrer">посиланням<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a><br> З відео можна побачити, що брокер працює так як потрібно, тому можна сказати, що інтеграція компонентів успішна.</p><h2 id="завантаження-в-репозиторіи-на-github" tabindex="-1"><a class="header-anchor" href="#завантаження-в-репозиторіи-на-github"><span>Завантаження в репозиторій на GitHub</span></a></h2><p>Детально з файлами проєкту можна ознайомитися за <a href="https://github.com/D0wnfal1/GetUrCourse" target="_blank" rel="noopener noreferrer">посиланням<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p></div><!--[--><!----><!--]--><footer class="page-meta"><!----><div class="meta-item git-info"><div class="update-time"><span class="label">Last update: </span><!----></div><div class="contributors"><span class="label">Contributors: </span><!--[--><!--[--><span class="contributor" title="email: pdo090318@gmail.com">maksimbilyk</span><!--]--><!--]--></div></div></footer><!----><!----><!--[--><!----><!--]--><!--]--></main><!--]--><footer class="vp-footer-wrapper"><div class="vp-footer">ECL 2.0 Licensed | Copyright © [2024] [IO Team] </div><!----></footer></div><!--]--><!--]--><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/GetUrCourses_labs/assets/app-Br68MbwD.js" defer></script>
+  </body>
+</html>
